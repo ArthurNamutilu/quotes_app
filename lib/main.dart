@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
 void main() => runApp(const MaterialApp(
   home: NiceQuotes(),
 ));
@@ -10,21 +11,21 @@ class NiceQuotes extends StatefulWidget {
 }
 
 class _NiceQuotesState extends State<NiceQuotes> {
-  List<String> quotes = [
-    'Procrastination is the thief of time',
-    'Laziness is a secret ingredient that goes into failure',
-    'Laziness is the mother of all bad habits'
+  List<Quote> quotes = [
+    Quote(text: 'Procrastination is the thief of time', author: 'Edward Young'), // Object
+    Quote(text: 'Laziness is a secret ingredient that goes into failure', author: 'Robert Half'),
+    Quote(text: 'Laziness is the mother of all bad habits', author: 'Shikamaru Nara')
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: const Text('Awesome quotes'),
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => Text(quote)).toList(),
+        children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
       ),
     );
   }
