@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'quote.dart';
+import 'quote_dart.dart';
+
 class Quote {
 
   late String text;
