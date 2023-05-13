@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
-import 'quote_dart.dart';
+import 'quote_card.dart';
 void main() => runApp(const MaterialApp(
   home: NiceQuotes(),
 ));
@@ -26,7 +26,14 @@ class _NiceQuotesState extends State<NiceQuotes> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(
+            quote: quote,
+            delete: (){ // function being passed as a parameter
+              setState(() {
+                quotes.remove(quote);
+              });
+          }
+        )).toList(),
       ),
     );
   }

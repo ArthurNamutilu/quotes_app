@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'quote.dart';
 
 class QuoteCard extends StatelessWidget {
-
   final Quote quote;
-  QuoteCard({required this.quote});
+  final Function delete; // defining delete() defined in  main.dart
+  QuoteCard({required this.quote, required this.delete});
+
 
   @override
   Widget build(BuildContext context) {
+    
     return Card(
       margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
       child: Padding(
@@ -30,6 +32,12 @@ class QuoteCard extends StatelessWidget {
                 color: Colors.grey[800],
               ),
             ),
+            const SizedBox(height: 8.0),
+            TextButton.icon(
+              onPressed: delete,    // NOT WORKING
+                label: Text('delete quote'),
+                icon: Icon(Icons.delete),
+            )
           ],
         ),
       ),
